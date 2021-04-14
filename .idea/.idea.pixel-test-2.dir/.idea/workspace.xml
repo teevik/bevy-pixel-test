@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CargoProjects">
+    <cargoProject FILE="$PROJECT_DIR$/Cargo.toml" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ba1d6ee2-ae9f-43af-8c63-232fb6ea680b" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="2" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/.cargo/config.toml" />
+        <option value="$PROJECT_DIR$/Cargo.toml" />
+        <option value="$PROJECT_DIR$/src/main.rs" />
+      </list>
+    </option>
+  </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="21kuzyfv" />
+  </component>
+  <component name="ProjectId" id="1rAXyfq9oSBhdlYWB9mEHc6l0jX" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="org.rust.cargo.project.model.PROJECT_DISCOVERY" value="true" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="language.rust.cargo" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Run" type="CargoCommandRunConfiguration" factoryName="Cargo Command" nameIsGenerated="true">
+      <option name="command" value="run" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <option name="channel" value="DEFAULT" />
+      <option name="requiredFeatures" value="true" />
+      <option name="allFeatures" value="false" />
+      <option name="emulateTerminal" value="false" />
+      <option name="backtrace" value="SHORT" />
+      <envs>
+        <env name="RUST_BACKTRACE" value="1" />
+      </envs>
+      <option name="isRedirectInput" value="false" />
+      <option name="redirectInputPath" value="" />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="RustProjectSettings">
+    <option name="runExternalLinterOnTheFly" value="true" />
+    <option name="toolchainHomeDirectory" value="$USER_HOME$/.cargo/bin" />
+    <option name="version" value="2" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ba1d6ee2-ae9f-43af-8c63-232fb6ea680b" name="Default Changelist" comment="" />
+      <created>1618420126168</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1618420126168</updated>
+      <workItem from="1618420129720" duration="148000" />
+      <workItem from="1618420317794" duration="1931000" />
+      <workItem from="1618423356606" duration="11547000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1618424180703">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/-1920.240.1920.1040@0.0.1920.1040" timestamp="1618424180703" />
+    <state x="825" y="182" key="EnvironmentVariablesDialog" timestamp="1618423252938">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="825" y="182" key="EnvironmentVariablesDialog/0.0.1920.1040/-1920.240.1920.1040@0.0.1920.1040" timestamp="1618423252938" />
+    <state width="1877" height="157" key="GridCell.Tab.0.bottom" timestamp="1618434379425">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="157" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.240.1920.1040@0.0.1920.1040" timestamp="1618434379425" />
+    <state width="1877" height="157" key="GridCell.Tab.0.center" timestamp="1618434379425">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="157" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.240.1920.1040@0.0.1920.1040" timestamp="1618434379425" />
+    <state width="1877" height="157" key="GridCell.Tab.0.left" timestamp="1618434379425">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="157" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.240.1920.1040@0.0.1920.1040" timestamp="1618434379425" />
+    <state width="1877" height="157" key="GridCell.Tab.0.right" timestamp="1618434379425">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="157" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.240.1920.1040@0.0.1920.1040" timestamp="1618434379425" />
+    <state x="461" y="164" key="SettingsEditor" timestamp="1618422794011">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="164" key="SettingsEditor/0.0.1920.1040/-1920.240.1920.1040@0.0.1920.1040" timestamp="1618422794011" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1618425153136">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/-1920.240.1920.1040@0.0.1920.1040" timestamp="1618425153136" />
+  </component>
+</project>

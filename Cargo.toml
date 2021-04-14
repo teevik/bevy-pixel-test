@@ -1,0 +1,10 @@
+[package]
+name = "pixel-test-2"
+version = "0.1.0"
+authors = ["teevik <teemu.vikoren@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+bevy = { version = "0.5" }
+bevy-inspector-egui = "0.4"
+rand = "0.8"
