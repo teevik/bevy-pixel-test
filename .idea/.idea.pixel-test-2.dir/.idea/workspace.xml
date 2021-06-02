@@ -1,10 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="CargoProjects">
     <cargoProject FILE="$PROJECT_DIR$/Cargo.toml" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ba1d6ee2-ae9f-43af-8c63-232fb6ea680b" name="Default Changelist" comment="" />
+    <list default="true" id="ba1d6ee2-ae9f-43af-8c63-232fb6ea680b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/assets/fonts/FiraMono-Medium.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fonts/FiraSans-Bold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pixel_chunk.frag" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pixel_chunk.vert" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.cargo/config.toml" beforeDir="false" afterPath="$PROJECT_DIR$/.cargo/config.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.pixel-test-2.dir/.idea/contentModel.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.pixel-test-2.dir/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.pixel-test-2.dir/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.pixel-test-2.dir/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.pixel-test-2.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.pixel-test-2.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.pixel-test-2.dir/riderModule.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,14 +39,21 @@
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="2" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$USER_HOME$/.rustup/toolchains/nightly-x86_64-pc-windows-msvc/lib/rustlib/src/rust/library/core/src/result.rs" root0="SKIP_INSPECTION" />
+    <setting file="file://$USER_HOME$/.cargo/git/checkouts/bevy-f7ffde730c324c74/4a477e7/crates/bevy_app/src/app_builder.rs" root0="SKIP_INSPECTION" />
+    <setting file="file://$USER_HOME$/.rustup/toolchains/nightly-x86_64-pc-windows-msvc/lib/rustlib/src/rust/library/core/src/default.rs" root0="SKIP_INSPECTION" />
+    <setting file="file://$USER_HOME$/.cargo/registry/src/github.com-1ecc6299db9ec823/bevy_diagnostic-0.5.0/src/frame_time_diagnostics_plugin.rs" root0="SKIP_INSPECTION" />
+    <setting file="file://$USER_HOME$/.cargo/registry/src/github.com-1ecc6299db9ec823/async-task-4.0.3/src/task.rs" root0="SKIP_INSPECTION" />
+  </component>
   <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/.cargo/config.toml" />
-        <option value="$PROJECT_DIR$/Cargo.toml" />
-        <option value="$PROJECT_DIR$/src/main.rs" />
-      </list>
-    </option>
+    <changedPaths>
+      <option value="$PROJECT_DIR$/.cargo/config.toml" />
+      <option value="$PROJECT_DIR$/Cargo.toml" />
+      <option value="$PROJECT_DIR$/src/main.rs" />
+      <option value="$PROJECT_DIR$/src/pixel_chunk.vert" />
+      <option value="$PROJECT_DIR$/src/pixel_chunk.frag" />
+    </changedPaths>
   </component>
   <component name="MacroExpansionManager">
     <option name="directoryName" value="21kuzyfv" />
@@ -35,6 +65,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="NEW_TOOLWINDOW_STRIPE_DEFAULTS" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -43,9 +74,12 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="org.rust.cargo.project.model.PROJECT_DISCOVERY" value="true" />
+    <property name="org.rust.disableDetachedFileInspectionC:/Users/teemu/Documents/Games/pixel-test-2/src/main.rs" value="true" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="language.rust.cargo" />
+    <property name="settings.editor.selected.configurable" value="MTConfigurable" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager">
     <configuration name="Run" type="CargoCommandRunConfiguration" factoryName="Cargo Command" nameIsGenerated="true">
@@ -56,9 +90,7 @@
       <option name="allFeatures" value="false" />
       <option name="emulateTerminal" value="false" />
       <option name="backtrace" value="SHORT" />
-      <envs>
-        <env name="RUST_BACKTRACE" value="1" />
-      </envs>
+      <envs />
       <option name="isRedirectInput" value="false" />
       <option name="redirectInputPath" value="" />
       <method v="2">
@@ -81,8 +113,33 @@
       <updated>1618420126168</updated>
       <workItem from="1618420129720" duration="148000" />
       <workItem from="1618420317794" duration="1931000" />
-      <workItem from="1618423356606" duration="11547000" />
+      <workItem from="1618423356606" duration="11843000" />
+      <workItem from="1618495044473" duration="584000" />
+      <workItem from="1618496305713" duration="994000" />
+      <workItem from="1618497338768" duration="6382000" />
+      <workItem from="1618700601348" duration="1277000" />
+      <workItem from="1618761545552" duration="4338000" />
+      <workItem from="1618925481003" duration="30000" />
+      <workItem from="1618925532193" duration="322000" />
+      <workItem from="1618926193457" duration="36000" />
+      <workItem from="1618926359963" duration="886000" />
+      <workItem from="1618927647155" duration="517000" />
+      <workItem from="1619544410287" duration="291000" />
+      <workItem from="1619546104050" duration="649000" />
+      <workItem from="1619546982926" duration="918000" />
+      <workItem from="1619641604020" duration="661000" />
+      <workItem from="1619788177322" duration="37000" />
+      <workItem from="1619788254138" duration="9893000" />
+      <workItem from="1619807054399" duration="7336000" />
+      <workItem from="1622656013010" duration="5903000" />
     </task>
+    <task id="LOCAL−00001" summary="aaa">
+      <created>1618435280578</created>
+      <option name="number" value="LOCAL−00001" />
+      <option name="presentableId" value="LOCAL−00001" />
+      <updated>1618435280578</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -90,41 +147,25 @@
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="aaa" />
+    <option name="LAST_COMMIT_MESSAGE" value="aaa" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1618424180703">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/-1920.240.1920.1040@0.0.1920.1040" timestamp="1618424180703" />
-    <state x="825" y="182" key="EnvironmentVariablesDialog" timestamp="1618423252938">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="825" y="182" key="EnvironmentVariablesDialog/0.0.1920.1040/-1920.240.1920.1040@0.0.1920.1040" timestamp="1618423252938" />
-    <state width="1877" height="157" key="GridCell.Tab.0.bottom" timestamp="1618434379425">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="157" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.240.1920.1040@0.0.1920.1040" timestamp="1618434379425" />
-    <state width="1877" height="157" key="GridCell.Tab.0.center" timestamp="1618434379425">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="157" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.240.1920.1040@0.0.1920.1040" timestamp="1618434379425" />
-    <state width="1877" height="157" key="GridCell.Tab.0.left" timestamp="1618434379425">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="157" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.240.1920.1040@0.0.1920.1040" timestamp="1618434379425" />
-    <state width="1877" height="157" key="GridCell.Tab.0.right" timestamp="1618434379425">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="157" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.240.1920.1040@0.0.1920.1040" timestamp="1618434379425" />
-    <state x="461" y="164" key="SettingsEditor" timestamp="1618422794011">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="461" y="164" key="SettingsEditor/0.0.1920.1040/-1920.240.1920.1040@0.0.1920.1040" timestamp="1618422794011" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1618425153136">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/-1920.240.1920.1040@0.0.1920.1040" timestamp="1618425153136" />
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
