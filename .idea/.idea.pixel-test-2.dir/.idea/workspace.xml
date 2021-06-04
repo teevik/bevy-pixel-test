@@ -14,19 +14,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba1d6ee2-ae9f-43af-8c63-232fb6ea680b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/fonts/FiraMono-Medium.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/FiraSans-Bold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pixel_chunk.frag" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pixel_chunk.vert" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.cargo/config.toml" beforeDir="false" afterPath="$PROJECT_DIR$/.cargo/config.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.pixel-test-2.dir/.idea/contentModel.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.pixel-test-2.dir/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.pixel-test-2.dir/.idea/indexLayout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.pixel-test-2.dir/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.pixel-test-2.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.pixel-test-2.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.pixel-test-2.dir/riderModule.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pixel_chunk.frag" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pixel_chunk.vert" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,10 +42,10 @@
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/.cargo/config.toml" />
-      <option value="$PROJECT_DIR$/Cargo.toml" />
-      <option value="$PROJECT_DIR$/src/main.rs" />
       <option value="$PROJECT_DIR$/src/pixel_chunk.vert" />
       <option value="$PROJECT_DIR$/src/pixel_chunk.frag" />
+      <option value="$PROJECT_DIR$/Cargo.toml" />
+      <option value="$PROJECT_DIR$/src/main.rs" />
     </changedPaths>
   </component>
   <component name="MacroExpansionManager">
@@ -78,7 +71,7 @@
     <property name="org.rust.cargo.project.model.PROJECT_DISCOVERY" value="true" />
     <property name="org.rust.disableDetachedFileInspectionC:/Users/teemu/Documents/Games/pixel-test-2/src/main.rs" value="true" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="MTConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager">
@@ -131,7 +124,8 @@
       <workItem from="1619788177322" duration="37000" />
       <workItem from="1619788254138" duration="9893000" />
       <workItem from="1619807054399" duration="7336000" />
-      <workItem from="1622656013010" duration="5903000" />
+      <workItem from="1622656013010" duration="20920000" />
+      <workItem from="1622805501161" duration="2940000" />
     </task>
     <task id="LOCAL−00001" summary="aaa">
       <created>1618435280578</created>
@@ -139,7 +133,13 @@
       <option name="presentableId" value="LOCAL−00001" />
       <updated>1618435280578</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL−00002" summary="awd">
+      <created>1622671258943</created>
+      <option name="number" value="LOCAL−00002" />
+      <option name="presentableId" value="LOCAL−00002" />
+      <updated>1622671258943</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -162,7 +162,8 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="aaa" />
-    <option name="LAST_COMMIT_MESSAGE" value="aaa" />
+    <MESSAGE value="awd" />
+    <option name="LAST_COMMIT_MESSAGE" value="awd" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
