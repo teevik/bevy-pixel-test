@@ -1,0 +1,43 @@
+﻿use bevy::prelude::*;
+use crate::game::components::{MainCamera, PixelSimulation};
+use crate::game::constants::CHUNK_SIZE;
+use crate::game::data::pixel_simulation::{ChunkPosition, CellPosition, CellContainer, Cell};
+use crate::game::data::chunk_changes::CellChange;
+
+pub fn update_pixel_simulation(
+    mut query: Query<&mut PixelSimulation>,
+    main_camera_query: Query<&Transform, With<MainCamera>>,
+    windows: Res<Windows>,
+    mouse_button_inputs: Res<Input<MouseButton>>,
+) {
+    let window = windows.get_primary().unwrap();
+    let camera_transform = main_camera_query.single().unwrap();
+
+    for mut pixel_simulation in query.iter_mut() {
+        let should_spawn_sand = mouse_button_inputs.pressed(MouseButton::Left);
+        if should_spawn_sand {
+            if let Some(cursor_position) = window.cursor_position() {
+                let size = Vec2::new(window.width() as f32, window.height() as f32);
+
+                let p = cursor_position - size / 2.0;
+                let cursor_position_world = Vec2::from(camera_transform.compute_matrix() * p.extend(0.0).extend(1.0));
+
+                let world_cell_position = (cursor_position_world / 300. * CHUNK_SIZE as f32).round() + (Vec2::ONE * (CHUNK_SIZE as f32 / 2.));
+                let world_cell_position = Vec2::new(world_cell_position.x, 64. - world_cell_position.y);
+                let chunk_position = (world_cell_position / CHUNK_SIZE as f32).floor().as_i32();
+                let world_cell_position = world_cell_position.as_i32();
+                let cell_position = (world_cell_position - chunk_position * CHUNK_SIZE as i32).as_u32();
+                let chunk_position = IVec2::new(chunk_position.x, -chunk_position.y);
+
+                let chunk_position = ChunkPosition(chunk_position);
+                let cell_position = CellPosition(cell_position);
+                
+                if let Some(chunk) = pixel_simulation.chunks.get_mut(&*chunk_position) {
+                    chunk.cells[cell_position.x as usize][cell_position.y as usize] = Some(CellContainer { cell: Cell::Sand, color: [255, 255, 0, 255], last_frame_updated: 0 });
+
+                    pixel_simulation.chunk_changes.add_cell_change(chunk_position, CellChange { new_color: [255, 255, 0, 255], cell_position });
+                }
+            }
+        }
+    }
+}

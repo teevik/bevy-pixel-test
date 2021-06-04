@@ -14,17 +14,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba1d6ee2-ae9f-43af-8c63-232fb6ea680b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/game/components.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/game/constants.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/game/data/chunk_changes.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/game/data/mod.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/game/data/pixel_simulation.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/game/data/system_labels.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/game/mod.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/game/plugin.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/game/resources.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/game/systems/mod.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/game/systems/render_pixel_simulation.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/game/systems/setup.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/game/systems/simulate_pixel_simulation.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/game/systems/update_pixel_simulation.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/show_fps/components.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/show_fps/mod.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/show_fps/plugin.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/show_fps/systems/mod.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/show_fps/systems/setup.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/show_fps/systems/update_fps_text.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.pixel-test-2.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.pixel-test-2.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pixel_chunk.frag" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pixel_chunk.vert" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Rust File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -45,7 +68,32 @@
       <option value="$PROJECT_DIR$/src/pixel_chunk.vert" />
       <option value="$PROJECT_DIR$/src/pixel_chunk.frag" />
       <option value="$PROJECT_DIR$/Cargo.toml" />
+      <option value="$PROJECT_DIR$/src/game/resources.rs" />
+      <option value="$PROJECT_DIR$/src/modules/show_fps/mod.rs" />
+      <option value="$PROJECT_DIR$/src/modules/show_fps/components.rs" />
+      <option value="$PROJECT_DIR$/src/modules/show_fps/systems/setup.rs" />
+      <option value="$PROJECT_DIR$/src/modules/show_fps/systems/mod.rs" />
+      <option value="$PROJECT_DIR$/src/modules/show_fps/plugin.rs" />
+      <option value="$PROJECT_DIR$/src/modules/mod.rs" />
+      <option value="$PROJECT_DIR$/src/show_fps/systems/mod.rs" />
+      <option value="$PROJECT_DIR$/src/show_fps/systems/update_fps_text.rs" />
+      <option value="$PROJECT_DIR$/src/show_fps/plugin.rs" />
+      <option value="$PROJECT_DIR$/src/game/mod.rs" />
+      <option value="$PROJECT_DIR$/src/game/constants.rs" />
+      <option value="$PROJECT_DIR$/src/game/systems/mod.rs" />
       <option value="$PROJECT_DIR$/src/main.rs" />
+      <option value="$PROJECT_DIR$/src/game/data/labels.rs" />
+      <option value="$PROJECT_DIR$/src/game/data/system_labels.rs" />
+      <option value="$PROJECT_DIR$/src/game/data/mod.rs" />
+      <option value="$PROJECT_DIR$/src/game/plugin.rs" />
+      <option value="$PROJECT_DIR$/src/show_fps/systems/setup.rs" />
+      <option value="$PROJECT_DIR$/src/game/systems/update_pixel_simulation.rs" />
+      <option value="$PROJECT_DIR$/src/game/data/chunk_changes.rs" />
+      <option value="$PROJECT_DIR$/src/game/systems/render_pixel_simulation.rs" />
+      <option value="$PROJECT_DIR$/src/game/data/pixel_simulation.rs" />
+      <option value="$PROJECT_DIR$/src/game/systems/setup.rs" />
+      <option value="$PROJECT_DIR$/src/game/components.rs" />
+      <option value="$PROJECT_DIR$/src/game/systems/simulate_pixel_simulation.rs" />
     </changedPaths>
   </component>
   <component name="MacroExpansionManager">
@@ -70,11 +118,27 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="org.rust.cargo.project.model.PROJECT_DISCOVERY" value="true" />
     <property name="org.rust.disableDetachedFileInspectionC:/Users/teemu/Documents/Games/pixel-test-2/src/main.rs" value="true" />
+    <property name="org.rust.disableDetachedFileInspectionC:/Users/teemu/Documents/Games/pixel-test-2/src/modules/show_fps/systems/setup.rs" value="true" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
+    <property name="settings.editor.selected.configurable" value="language.rust.cargo" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Cargo.Run">
+    <configuration name="Expand pixel_test_2" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="command" value="expand --bin pixel-test-2 --color=always --theme=GitHub --tests" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <option name="channel" value="DEFAULT" />
+      <option name="requiredFeatures" value="true" />
+      <option name="allFeatures" value="false" />
+      <option name="emulateTerminal" value="false" />
+      <option name="backtrace" value="SHORT" />
+      <envs />
+      <option name="isRedirectInput" value="false" />
+      <option name="redirectInputPath" value="" />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Run" type="CargoCommandRunConfiguration" factoryName="Cargo Command" nameIsGenerated="true">
       <option name="command" value="run" />
       <option name="workingDirectory" value="file://$PROJECT_DIR$" />
@@ -90,8 +154,14 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Cargo.Expand pixel_test_2" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="RustProjectSettings">
+    <option name="externalLinter" value="Clippy" />
     <option name="runExternalLinterOnTheFly" value="true" />
     <option name="toolchainHomeDirectory" value="$USER_HOME$/.cargo/bin" />
     <option name="version" value="2" />
@@ -125,7 +195,8 @@
       <workItem from="1619788254138" duration="9893000" />
       <workItem from="1619807054399" duration="7336000" />
       <workItem from="1622656013010" duration="20920000" />
-      <workItem from="1622805501161" duration="2940000" />
+      <workItem from="1622805501161" duration="3075000" />
+      <workItem from="1622819387131" duration="6514000" />
     </task>
     <task id="LOCAL−00001" summary="aaa">
       <created>1618435280578</created>
@@ -139,7 +210,13 @@
       <option name="presentableId" value="LOCAL−00002" />
       <updated>1622671258943</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL−00003" summary="adwadwda">
+      <created>1622819218630</created>
+      <option name="number" value="LOCAL−00003" />
+      <option name="presentableId" value="LOCAL−00003" />
+      <updated>1622819218630</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -163,7 +240,8 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="aaa" />
     <MESSAGE value="awd" />
-    <option name="LAST_COMMIT_MESSAGE" value="awd" />
+    <MESSAGE value="adwadwda" />
+    <option name="LAST_COMMIT_MESSAGE" value="adwadwda" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
