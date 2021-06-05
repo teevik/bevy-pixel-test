@@ -13,29 +13,18 @@
     <cargoProject FILE="$PROJECT_DIR$/Cargo.toml" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ba1d6ee2-ae9f-43af-8c63-232fb6ea680b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/game/components.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/game/constants.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/game/data/chunk_changes.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/game/data/mod.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/game/data/pixel_simulation.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/game/data/system_labels.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/game/mod.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/game/plugin.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/game/resources.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/game/systems/mod.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/game/systems/render_pixel_simulation.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/game/systems/setup.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/game/systems/simulate_pixel_simulation.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/game/systems/update_pixel_simulation.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/show_fps/components.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/show_fps/mod.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/show_fps/plugin.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/show_fps/systems/mod.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/show_fps/systems/setup.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/show_fps/systems/update_fps_text.rs" afterDir="false" />
+    <list default="true" id="ba1d6ee2-ae9f-43af-8c63-232fb6ea680b" name="Default Changelist" comment="works :D">
+      <change afterPath="$PROJECT_DIR$/src/game/data/unsafe_cell_wrapper.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.pixel-test-2.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.pixel-test-2.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/components.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/components.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/constants.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/constants.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/data/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/data/mod.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/data/pixel_simulation.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/data/pixel_simulation.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/systems/setup.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/systems/setup.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/systems/simulate_pixel_simulation.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/systems/simulate_pixel_simulation.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/systems/update_pixel_simulation.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/systems/update_pixel_simulation.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +41,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="2" />
   </component>
@@ -67,7 +64,6 @@
       <option value="$PROJECT_DIR$/.cargo/config.toml" />
       <option value="$PROJECT_DIR$/src/pixel_chunk.vert" />
       <option value="$PROJECT_DIR$/src/pixel_chunk.frag" />
-      <option value="$PROJECT_DIR$/Cargo.toml" />
       <option value="$PROJECT_DIR$/src/game/resources.rs" />
       <option value="$PROJECT_DIR$/src/modules/show_fps/mod.rs" />
       <option value="$PROJECT_DIR$/src/modules/show_fps/components.rs" />
@@ -79,20 +75,22 @@
       <option value="$PROJECT_DIR$/src/show_fps/systems/update_fps_text.rs" />
       <option value="$PROJECT_DIR$/src/show_fps/plugin.rs" />
       <option value="$PROJECT_DIR$/src/game/mod.rs" />
-      <option value="$PROJECT_DIR$/src/game/constants.rs" />
       <option value="$PROJECT_DIR$/src/game/systems/mod.rs" />
       <option value="$PROJECT_DIR$/src/main.rs" />
       <option value="$PROJECT_DIR$/src/game/data/labels.rs" />
       <option value="$PROJECT_DIR$/src/game/data/system_labels.rs" />
-      <option value="$PROJECT_DIR$/src/game/data/mod.rs" />
       <option value="$PROJECT_DIR$/src/game/plugin.rs" />
       <option value="$PROJECT_DIR$/src/show_fps/systems/setup.rs" />
-      <option value="$PROJECT_DIR$/src/game/systems/update_pixel_simulation.rs" />
-      <option value="$PROJECT_DIR$/src/game/data/chunk_changes.rs" />
       <option value="$PROJECT_DIR$/src/game/systems/render_pixel_simulation.rs" />
-      <option value="$PROJECT_DIR$/src/game/data/pixel_simulation.rs" />
+      <option value="$PROJECT_DIR$/src/game/data/mod.rs" />
+      <option value="$PROJECT_DIR$/src/game/data/chunk_changes.rs" />
+      <option value="$PROJECT_DIR$/src/game/data/unsafe_cell_wrapper.rs" />
+      <option value="$PROJECT_DIR$/src/game/systems/update_pixel_simulation.rs" />
       <option value="$PROJECT_DIR$/src/game/systems/setup.rs" />
+      <option value="$PROJECT_DIR$/Cargo.toml" />
       <option value="$PROJECT_DIR$/src/game/components.rs" />
+      <option value="$PROJECT_DIR$/src/game/constants.rs" />
+      <option value="$PROJECT_DIR$/src/game/data/pixel_simulation.rs" />
       <option value="$PROJECT_DIR$/src/game/systems/simulate_pixel_simulation.rs" />
     </changedPaths>
   </component>
@@ -161,7 +159,6 @@
     </recent_temporary>
   </component>
   <component name="RustProjectSettings">
-    <option name="externalLinter" value="Clippy" />
     <option name="runExternalLinterOnTheFly" value="true" />
     <option name="toolchainHomeDirectory" value="$USER_HOME$/.cargo/bin" />
     <option name="version" value="2" />
@@ -196,7 +193,8 @@
       <workItem from="1619807054399" duration="7336000" />
       <workItem from="1622656013010" duration="20920000" />
       <workItem from="1622805501161" duration="3075000" />
-      <workItem from="1622819387131" duration="6514000" />
+      <workItem from="1622819387131" duration="15590000" />
+      <workItem from="1622889731523" duration="3470000" />
     </task>
     <task id="LOCAL−00001" summary="aaa">
       <created>1618435280578</created>
@@ -216,7 +214,13 @@
       <option name="presentableId" value="LOCAL−00003" />
       <updated>1622819218630</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL−00004" summary="works :D">
+      <created>1622825933718</created>
+      <option name="number" value="LOCAL−00004" />
+      <option name="presentableId" value="LOCAL−00004" />
+      <updated>1622825933718</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -241,7 +245,8 @@
     <MESSAGE value="aaa" />
     <MESSAGE value="awd" />
     <MESSAGE value="adwadwda" />
-    <option name="LAST_COMMIT_MESSAGE" value="adwadwda" />
+    <MESSAGE value="works :D" />
+    <option name="LAST_COMMIT_MESSAGE" value="works :D" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

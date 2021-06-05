@@ -33,7 +33,7 @@ pub fn update_pixel_simulation(
                 let cell_position = CellPosition(cell_position);
                 
                 if let Some(chunk) = pixel_simulation.chunks.get_mut(&*chunk_position) {
-                    chunk.cells[cell_position.x as usize][cell_position.y as usize] = Some(CellContainer { cell: Cell::Sand, color: [255, 255, 0, 255], last_frame_updated: 0 });
+                    (*chunk.cells.0.get_mut())[cell_position.x as usize][cell_position.y as usize] = Some(CellContainer { cell: Cell::Sand, color: [255, 255, 0, 255], last_iteration_updated: 0 });
 
                     pixel_simulation.chunk_changes.add_cell_change(chunk_position, CellChange { new_color: [255, 255, 0, 255], cell_position });
                 }

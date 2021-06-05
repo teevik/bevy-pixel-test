@@ -32,7 +32,7 @@ pub fn setup(
                     depth: 1,
                 },
                 TextureDimension::D2,
-                &[255, 255, 255, 255],
+                &[0, 0, 0, 0],
                 TextureFormat::Rgba8UnormSrgb,
             );
 
