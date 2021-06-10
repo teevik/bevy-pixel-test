@@ -13,18 +13,17 @@
     <cargoProject FILE="$PROJECT_DIR$/Cargo.toml" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ba1d6ee2-ae9f-43af-8c63-232fb6ea680b" name="Default Changelist" comment="works :D">
-      <change afterPath="$PROJECT_DIR$/src/game/data/unsafe_cell_wrapper.rs" afterDir="false" />
+    <list default="true" id="ba1d6ee2-ae9f-43af-8c63-232fb6ea680b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.pixel-test-2.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.pixel-test-2.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/components.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/components.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/constants.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/constants.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/data/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/data/mod.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/data/chunk_changes.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/data/chunk_changes.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/data/pixel_simulation.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/data/pixel_simulation.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/systems/render_pixel_simulation.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/systems/render_pixel_simulation.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/systems/setup.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/systems/setup.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/systems/simulate_pixel_simulation.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/systems/simulate_pixel_simulation.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/systems/update_pixel_simulation.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/systems/update_pixel_simulation.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,21 +75,21 @@
       <option value="$PROJECT_DIR$/src/show_fps/plugin.rs" />
       <option value="$PROJECT_DIR$/src/game/mod.rs" />
       <option value="$PROJECT_DIR$/src/game/systems/mod.rs" />
-      <option value="$PROJECT_DIR$/src/main.rs" />
       <option value="$PROJECT_DIR$/src/game/data/labels.rs" />
       <option value="$PROJECT_DIR$/src/game/data/system_labels.rs" />
       <option value="$PROJECT_DIR$/src/game/plugin.rs" />
       <option value="$PROJECT_DIR$/src/show_fps/systems/setup.rs" />
-      <option value="$PROJECT_DIR$/src/game/systems/render_pixel_simulation.rs" />
       <option value="$PROJECT_DIR$/src/game/data/mod.rs" />
-      <option value="$PROJECT_DIR$/src/game/data/chunk_changes.rs" />
       <option value="$PROJECT_DIR$/src/game/data/unsafe_cell_wrapper.rs" />
-      <option value="$PROJECT_DIR$/src/game/systems/update_pixel_simulation.rs" />
-      <option value="$PROJECT_DIR$/src/game/systems/setup.rs" />
       <option value="$PROJECT_DIR$/Cargo.toml" />
+      <option value="$PROJECT_DIR$/src/game/data/chunk_changes.rs" />
       <option value="$PROJECT_DIR$/src/game/components.rs" />
-      <option value="$PROJECT_DIR$/src/game/constants.rs" />
+      <option value="$PROJECT_DIR$/src/game/systems/update_pixel_simulation.rs" />
       <option value="$PROJECT_DIR$/src/game/data/pixel_simulation.rs" />
+      <option value="$PROJECT_DIR$/src/game/constants.rs" />
+      <option value="$PROJECT_DIR$/src/main.rs" />
+      <option value="$PROJECT_DIR$/src/game/systems/setup.rs" />
+      <option value="$PROJECT_DIR$/src/game/systems/render_pixel_simulation.rs" />
       <option value="$PROJECT_DIR$/src/game/systems/simulate_pixel_simulation.rs" />
     </changedPaths>
   </component>
@@ -152,6 +151,10 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Cargo.Run" />
+      <item itemvalue="Cargo.Expand pixel_test_2" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Cargo.Expand pixel_test_2" />
@@ -194,7 +197,8 @@
       <workItem from="1622656013010" duration="20920000" />
       <workItem from="1622805501161" duration="3075000" />
       <workItem from="1622819387131" duration="15590000" />
-      <workItem from="1622889731523" duration="3470000" />
+      <workItem from="1622889731523" duration="3756000" />
+      <workItem from="1623316086405" duration="4305000" />
     </task>
     <task id="LOCAL−00001" summary="aaa">
       <created>1618435280578</created>
@@ -220,7 +224,13 @@
       <option name="presentableId" value="LOCAL−00004" />
       <updated>1622825933718</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL−00005" summary="awdadw">
+      <created>1622895082079</created>
+      <option name="number" value="LOCAL−00005" />
+      <option name="presentableId" value="LOCAL−00005" />
+      <updated>1622895082079</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -246,7 +256,8 @@
     <MESSAGE value="awd" />
     <MESSAGE value="adwadwda" />
     <MESSAGE value="works :D" />
-    <option name="LAST_COMMIT_MESSAGE" value="works :D" />
+    <MESSAGE value="awdadw" />
+    <option name="LAST_COMMIT_MESSAGE" value="awdadw" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

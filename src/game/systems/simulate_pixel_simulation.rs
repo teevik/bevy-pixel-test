@@ -1,20 +1,21 @@
 ﻿use bevy::prelude::*;
-use crate::game::components::PixelSimulation;
+use crate::game::components::{PixelSimulation, ChunkChanges};
 use crate::game::constants::CHUNK_SIZE;
 use crate::game::data::pixel_simulation::{CellContainer, Cell, ChunkPosition, CellPosition, Chunk};
 use std::num::Wrapping;
 use crate::game::data::chunk_changes::CellChange;
 
 pub fn simulate_pixel_simulation(
-    mut query: Query<&mut PixelSimulation>,
-    mut iteration: Local<Wrapping<u64>>
+    mut query: Query<(&PixelSimulation, &mut ChunkChanges)>,
+    mut iteration: Local<Wrapping<u64>>,
+    mut textures: ResMut<Assets<Texture>>
 ) {
     *iteration += Wrapping(1);
     // println!("{}", *iteration);
     
     let is_even_iteration = iteration.0 % 2 == 0;
 
-    for mut pixel_simulation in query.iter_mut() {
+    for (pixel_simulation, mut chunk_changes) in query.iter_mut() {
         // let keys: Vec<ChunkPosition> = pixel_simulation.chunks.keys().map(|chunk_position| *chunk_position).collect();
 
         let dimensions = pixel_simulation.chunks_dimensions;
@@ -31,54 +32,67 @@ pub fn simulate_pixel_simulation(
                 let chunk_position = ChunkPosition(IVec2::new(chunk_x, chunk_y));
                 if !pixel_simulation.chunks.contains_key(&chunk_position) { continue };
                 
-                unsafe {
-                    let chunk = &pixel_simulation.chunks[&chunk_position];
+                let chunk = &pixel_simulation.chunks[&chunk_position];
+                let chunk_cells = chunk.get_cells();
 
-                    let horizontal_range = if is_even_iteration {
-                        itertools::Either::Left(0..CHUNK_SIZE)
-                    } else {
-                        itertools::Either::Right((0..CHUNK_SIZE).rev())
-                    };
+                let horizontal_range = if is_even_iteration {
+                    itertools::Either::Left(0..CHUNK_SIZE)
+                } else {
+                    itertools::Either::Right((0..CHUNK_SIZE).rev())
+                };
+                
+                let set_cell = || {
+                    
+                };
 
-                    for x in horizontal_range {
-                        for y in (0..CHUNK_SIZE).rev() {
-                            if let Some(cell_container) = cells[x][y] {
-                                if cell_container.last_iteration_updated != iteration.0 {
-                                    let mut cell_container = cell_container;
-                                    cell_container.last_iteration_updated = iteration.0;
+                for x in horizontal_range {
+                    for y in (0..CHUNK_SIZE).rev() {
+                        let cell_position = CellPosition(UVec2::new(x as u32, y as u32));
+                        
+                        if let Some(cell_container) = chunk_cells.get_cell(cell_position) {
+                            if cell_container.last_iteration_updated != iteration.0 {
+                                let mut cell_container = cell_container;
+                                cell_container.last_iteration_updated = iteration.0;
+                                
+                                let mut try_move_offset = |cell_offset: IVec2| -> bool {
+                                    let offseted_cell_position = cell_position.as_i32() + cell_offset;
 
-                                    let a= IVec2::new(x as i32, y as i32) + IVec2::new(0, 1);
-                                    let chunk_offset = (a.as_f32() / (CHUNK_SIZE as f32)).floor().as_i32();
-                                    let target_chunk_position = ChunkPosition(*chunk_position - chunk_offset);
-                                    let target_cell_position = (a - (chunk_offset * CHUNK_SIZE as i32)).as_u32();
-                                    
+                                    let chunk_offset = (offseted_cell_position.as_f32() / (CHUNK_SIZE as f32)).floor().as_i32();
+                                    let target_chunk_position = ChunkPosition(*chunk_position + IVec2::new(chunk_offset.x, -chunk_offset.y));
+                                    let target_cell_position = CellPosition((offseted_cell_position - (chunk_offset * CHUNK_SIZE as i32)).as_u32());
+
                                     if pixel_simulation.chunks.contains_key(&target_chunk_position) {
                                         let target_chunk = &pixel_simulation.chunks[&target_chunk_position];
-                                        let target_chunk_cells = &mut *pixel_simulation.chunks[&target_chunk_position].cells.0.get();
+                                        let target_chunk_cells = target_chunk.get_cells();
 
-                                        if target_chunk.get_cell(CellPosition(target_cell_position)).is_none() {
-                                            cells[x][y] = None;
+                                        if target_chunk_cells.get_cell(target_cell_position).is_none() {
+                                            chunk_cells.set_cell(cell_position, None);
+                                            target_chunk_cells.set_cell(target_cell_position, Some(cell_container));
 
-                                            target_chunk_cells[target_cell_position.x as usize][target_cell_position.y as usize] = Some(cell_container);
-
-                                            pixel_simulation.chunk_changes.add_cell_change(chunk_position, CellChange {
+                                            chunk_changes.add_cell_change(chunk_position, CellChange {
                                                 cell_position: CellPosition(UVec2::new(x as u32, y as u32)),
                                                 new_color: [0, 0, 0, 0]
                                             });
 
-                                            pixel_simulation.chunk_changes.add_cell_change(target_chunk_position, CellChange {
-                                                cell_position: CellPosition(target_cell_position),
+                                            chunk_changes.add_cell_change(target_chunk_position, CellChange {
+                                                cell_position: target_cell_position,
                                                 new_color: cell_container.color
                                             });
+                                            true
                                         } else {
-                                            cells[x][y] = Some(cell_container);
+                                            false
                                         }
                                     } else {
-                                        cells[x][y] = Some(cell_container);
+                                        false
                                     }
-
-                                    // cells[x][y] = None;
-                                }
+                                };
+                                
+                                let slide_direction = if is_even_iteration { -1 } else { 1 };
+                                
+                                if try_move_offset(IVec2::new(0, 1)) {}
+                                else if try_move_offset(IVec2::new(slide_direction, 1)) {}
+                                else if try_move_offset(IVec2::new(-slide_direction, 1)) {}
+                                else { chunk_cells.set_cell(cell_position, Some(cell_container)); }
                             }
                         }
                     }

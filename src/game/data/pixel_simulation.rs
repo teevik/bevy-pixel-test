@@ -19,31 +19,44 @@ pub struct ChunkPosition(pub IVec2);
 pub struct Chunk {
     pub texture_handle: Handle<Texture>,
     pub material_handle: Handle<ColorMaterial>,
-    pub cells: UnsafeCellWrapper<[[Option<CellContainer>; CHUNK_SIZE]; CHUNK_SIZE]>
+    cells: UnsafeCellWrapper<Cells>
 }
 
 impl Chunk {
     pub fn new(texture_handle: Handle<Texture>, material_handle: Handle<ColorMaterial>) -> Self {
-        let cells = UnsafeCellWrapper::new([[None; CHUNK_SIZE]; CHUNK_SIZE]);
-
         Self {
             texture_handle,
             material_handle,
+            cells: UnsafeCellWrapper::new(Cells::new())
+        }
+    }
+    
+    pub fn get_cells(&self) -> &mut Cells {
+        unsafe { &mut *self.cells.0.get() }
+    }
+}
+
+#[derive(Clone)]
+pub struct Cells {
+    cells: [[Option<CellContainer>; CHUNK_SIZE]; CHUNK_SIZE]
+}
+
+impl Cells {
+    pub fn new() -> Self {
+        let cells = [[None; CHUNK_SIZE]; CHUNK_SIZE];
+
+        Self {
             cells
         }
     }
-
-    pub fn get_cell(&self, cell_position: CellPosition) -> Option<CellContainer> {
-        let cells = &mut unsafe { *self.cells.0.get() };
-
-        cells[cell_position.x as usize][cell_position.y as usize]
+    
+    pub fn get_cell(&mut self, cell_position: CellPosition) -> Option<CellContainer> {
+        self.cells[cell_position.x as usize][cell_position.y as usize]
     }
 
-    pub fn set_cell(&self, cell_position: CellPosition, cell_container: Option<CellContainer>) {
-        let cells = &mut unsafe { *self.cells.0.get() };
-
-        cells[cell_position.x as usize][cell_position.y as usize] = cell_container;
-    } 
+    pub fn set_cell(&mut self, cell_position: CellPosition, cell_container: Option<CellContainer>) {
+        self.cells[cell_position.x as usize][cell_position.y as usize] = cell_container;
+    }
 }
 
 #[derive(Copy, Clone)]

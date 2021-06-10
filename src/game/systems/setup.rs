@@ -4,7 +4,7 @@
         texture::{ TextureDimension, TextureFormat, Extent3d },
     },
 };
-use crate::game::components::{MainCamera, PixelSimulation};
+use crate::game::components::{MainCamera, PixelSimulation, ChunkChanges};
 use bevy::utils::HashMap;
 use crate::game::data::pixel_simulation::{Chunk, ChunkPosition};
 use crate::game::constants::WORLD_CHUNK_SIZE;
@@ -17,7 +17,10 @@ pub fn setup(
     commands.spawn()
         .insert(Name::new("Camera"))
         .insert(MainCamera)
-        .insert_bundle(OrthographicCameraBundle::new_2d());
+        .insert_bundle(OrthographicCameraBundle {
+            transform: Transform::from_scale(Vec3::new(1.5, 1.5, 1.5)),
+            ..OrthographicCameraBundle::new_2d()
+        });
 
     commands.spawn_bundle(UiCameraBundle::default());
     
@@ -46,6 +49,7 @@ pub fn setup(
     commands.spawn()
         .insert(Name::new("Pixel Simulation"))
         .insert(PixelSimulation::new(chunks.clone()))
+        .insert(ChunkChanges::new())
         .insert(Transform::default())
         .insert(GlobalTransform::default())
         .with_children(|child_builder| {

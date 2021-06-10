@@ -1,11 +1,11 @@
 ﻿use bevy::prelude::*;
-use crate::game::components::{MainCamera, PixelSimulation};
+use crate::game::components::{MainCamera, PixelSimulation, ChunkChanges};
 use crate::game::constants::CHUNK_SIZE;
 use crate::game::data::pixel_simulation::{ChunkPosition, CellPosition, CellContainer, Cell};
 use crate::game::data::chunk_changes::CellChange;
 
 pub fn update_pixel_simulation(
-    mut query: Query<&mut PixelSimulation>,
+    mut query: Query<(&mut PixelSimulation, &mut ChunkChanges)>,
     main_camera_query: Query<&Transform, With<MainCamera>>,
     windows: Res<Windows>,
     mouse_button_inputs: Res<Input<MouseButton>>,
@@ -13,7 +13,7 @@ pub fn update_pixel_simulation(
     let window = windows.get_primary().unwrap();
     let camera_transform = main_camera_query.single().unwrap();
 
-    for mut pixel_simulation in query.iter_mut() {
+    for (mut pixel_simulation, mut chunk_changes) in query.iter_mut() {
         let should_spawn_sand = mouse_button_inputs.pressed(MouseButton::Left);
         if should_spawn_sand {
             if let Some(cursor_position) = window.cursor_position() {
@@ -33,9 +33,9 @@ pub fn update_pixel_simulation(
                 let cell_position = CellPosition(cell_position);
                 
                 if let Some(chunk) = pixel_simulation.chunks.get_mut(&*chunk_position) {
-                    (*chunk.cells.0.get_mut())[cell_position.x as usize][cell_position.y as usize] = Some(CellContainer { cell: Cell::Sand, color: [255, 255, 0, 255], last_iteration_updated: 0 });
+                    chunk.get_cells().set_cell(cell_position, Some(CellContainer { cell: Cell::Sand, color: [255, 255, 0, 255], last_iteration_updated: 0 }));
 
-                    pixel_simulation.chunk_changes.add_cell_change(chunk_position, CellChange { new_color: [255, 255, 0, 255], cell_position });
+                    chunk_changes.add_cell_change(chunk_position, CellChange { new_color: [255, 255, 0, 255], cell_position });
                 }
             }
         }

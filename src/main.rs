@@ -13,7 +13,6 @@ struct Resources {
     clear_color: ResourceInspector<ClearColor>,
 }
 
-
 fn main() {
     let mut app = App::build();
     

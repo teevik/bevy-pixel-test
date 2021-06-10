@@ -1,12 +1,12 @@
 ﻿use bevy::prelude::*;
-use crate::game::components::PixelSimulation;
+use crate::game::components::{PixelSimulation, ChunkChanges};
 
 pub fn render_pixel_simulation(
-    mut query: Query<&mut PixelSimulation>,
+    mut query: Query<(&PixelSimulation, &mut ChunkChanges)>,
     mut textures: ResMut<Assets<Texture>>
 ) {
-    for mut pixel_simulation in query.iter_mut() {
-        for chunk_change in &pixel_simulation.chunk_changes {
+    for (pixel_simulation, mut chunk_changes) in query.iter_mut() {
+        for chunk_change in &*chunk_changes {
             let chunk = pixel_simulation.chunks.get(&*chunk_change.chunk_position).unwrap();
             let texture = textures.get_mut(&chunk.texture_handle).unwrap();
 
@@ -20,6 +20,6 @@ pub fn render_pixel_simulation(
             }
         }
 
-        pixel_simulation.chunk_changes.clear();
+        chunk_changes.clear();
     }
 }
