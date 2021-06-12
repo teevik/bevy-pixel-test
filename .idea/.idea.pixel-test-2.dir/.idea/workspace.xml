@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -16,14 +19,12 @@
     <list default="true" id="ba1d6ee2-ae9f-43af-8c63-232fb6ea680b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.pixel-test-2.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.pixel-test-2.dir/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/components.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/components.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/constants.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/constants.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/data/chunk_changes.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/data/chunk_changes.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/data/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/data/mod.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/data/pixel_simulation.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/data/pixel_simulation.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/data/unsafe_cell_wrapper.rs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/systems/render_pixel_simulation.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/systems/render_pixel_simulation.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/systems/setup.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/systems/setup.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/systems/simulate_pixel_simulation.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/systems/simulate_pixel_simulation.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/systems/update_pixel_simulation.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/systems/update_pixel_simulation.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,17 +80,17 @@
       <option value="$PROJECT_DIR$/src/game/data/system_labels.rs" />
       <option value="$PROJECT_DIR$/src/game/plugin.rs" />
       <option value="$PROJECT_DIR$/src/show_fps/systems/setup.rs" />
-      <option value="$PROJECT_DIR$/src/game/data/mod.rs" />
       <option value="$PROJECT_DIR$/src/game/data/unsafe_cell_wrapper.rs" />
       <option value="$PROJECT_DIR$/Cargo.toml" />
       <option value="$PROJECT_DIR$/src/game/data/chunk_changes.rs" />
-      <option value="$PROJECT_DIR$/src/game/components.rs" />
-      <option value="$PROJECT_DIR$/src/game/systems/update_pixel_simulation.rs" />
-      <option value="$PROJECT_DIR$/src/game/data/pixel_simulation.rs" />
       <option value="$PROJECT_DIR$/src/game/constants.rs" />
       <option value="$PROJECT_DIR$/src/main.rs" />
       <option value="$PROJECT_DIR$/src/game/systems/setup.rs" />
+      <option value="$PROJECT_DIR$/src/game/data/pixel_simulation.rs" />
+      <option value="$PROJECT_DIR$/src/game/data/mod.rs" />
+      <option value="$PROJECT_DIR$/src/game/components.rs" />
       <option value="$PROJECT_DIR$/src/game/systems/render_pixel_simulation.rs" />
+      <option value="$PROJECT_DIR$/src/game/systems/update_pixel_simulation.rs" />
       <option value="$PROJECT_DIR$/src/game/systems/simulate_pixel_simulation.rs" />
     </changedPaths>
   </component>
@@ -199,6 +200,8 @@
       <workItem from="1622819387131" duration="15590000" />
       <workItem from="1622889731523" duration="3756000" />
       <workItem from="1623316086405" duration="4305000" />
+      <workItem from="1623503721716" duration="75000" />
+      <workItem from="1623507221899" duration="347000" />
     </task>
     <task id="LOCAL−00001" summary="aaa">
       <created>1618435280578</created>

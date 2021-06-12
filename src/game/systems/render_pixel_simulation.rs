@@ -7,7 +7,7 @@ pub fn render_pixel_simulation(
 ) {
     for (pixel_simulation, mut chunk_changes) in query.iter_mut() {
         for chunk_change in &*chunk_changes {
-            let chunk = pixel_simulation.chunks.get(&*chunk_change.chunk_position).unwrap();
+            let chunk = pixel_simulation.chunks.get(&*chunk_change.chunk_position).unwrap().lock().unwrap();
             let texture = textures.get_mut(&chunk.texture_handle).unwrap();
 
             for cell_change in &chunk_change.cell_changes {

@@ -4,11 +4,14 @@ use crate::game::data::pixel_simulation::{Chunk, ChunkPosition};
 use bevy::math::Rect;
 use core::slice;
 use smallvec::{smallvec};
+use std::cell::RefCell;
+use std::rc::Rc;
+use std::sync::{Arc, Mutex};
 
 pub struct MainCamera;
 
 pub struct PixelSimulation {
-    pub chunks: HashMap<ChunkPosition, Chunk>,
+    pub chunks: HashMap<ChunkPosition, Arc<Mutex<Chunk>>>,
     pub chunks_dimensions: Rect<i32>
 }
 
@@ -27,7 +30,7 @@ impl PixelSimulation {
         };
         
         Self {
-            chunks,
+            chunks: chunks.iter().map(|(chunk_position, chunk)| (*chunk_position, Arc::new(Mutex::new(chunk.clone())))).collect(),
             chunks_dimensions
         }
     }

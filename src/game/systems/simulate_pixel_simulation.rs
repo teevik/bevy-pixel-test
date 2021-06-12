@@ -32,8 +32,8 @@ pub fn simulate_pixel_simulation(
                 let chunk_position = ChunkPosition(IVec2::new(chunk_x, chunk_y));
                 if !pixel_simulation.chunks.contains_key(&chunk_position) { continue };
                 
-                let chunk = &pixel_simulation.chunks[&chunk_position];
-                let chunk_cells = chunk.get_cells();
+                let chunk = &mut pixel_simulation.chunks[&chunk_position].lock().unwrap();
+                let chunk_cells = &mut chunk.cells;
 
                 let horizontal_range = if is_even_iteration {
                     itertools::Either::Left(0..CHUNK_SIZE)
@@ -62,8 +62,8 @@ pub fn simulate_pixel_simulation(
                                     let target_cell_position = CellPosition((offseted_cell_position - (chunk_offset * CHUNK_SIZE as i32)).as_u32());
 
                                     if pixel_simulation.chunks.contains_key(&target_chunk_position) {
-                                        let target_chunk = &pixel_simulation.chunks[&target_chunk_position];
-                                        let target_chunk_cells = target_chunk.get_cells();
+                                        let target_chunk = &mut pixel_simulation.chunks[&target_chunk_position].lock().unwrap();
+                                        let target_chunk_cells = &mut target_chunk.cells;
 
                                         if target_chunk_cells.get_cell(target_cell_position).is_none() {
                                             chunk_cells.set_cell(cell_position, None);

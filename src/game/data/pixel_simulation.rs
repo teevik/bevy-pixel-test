@@ -1,7 +1,6 @@
 ﻿use bevy::prelude::*;
 use crate::game::constants::CHUNK_SIZE;
 use shrinkwraprs::Shrinkwrap;
-use crate::game::data::unsafe_cell_wrapper::UnsafeCellWrapper;
 
 #[derive(Shrinkwrap, Clone, Copy)]
 pub struct CellPosition(pub UVec2);
@@ -19,7 +18,7 @@ pub struct ChunkPosition(pub IVec2);
 pub struct Chunk {
     pub texture_handle: Handle<Texture>,
     pub material_handle: Handle<ColorMaterial>,
-    cells: UnsafeCellWrapper<Cells>
+    pub cells: Cells
 }
 
 impl Chunk {
@@ -27,12 +26,8 @@ impl Chunk {
         Self {
             texture_handle,
             material_handle,
-            cells: UnsafeCellWrapper::new(Cells::new())
+            cells: Cells::new()
         }
-    }
-    
-    pub fn get_cells(&self) -> &mut Cells {
-        unsafe { &mut *self.cells.0.get() }
     }
 }
 
