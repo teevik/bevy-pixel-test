@@ -1,18 +1,19 @@
-﻿use bevy::utils::HashMap;
+﻿use bevy::prelude::*;
+use bevy::utils::HashMap;
 use crate::game::data::chunk_changes::{ChunkChange, CellChange};
-use crate::game::data::pixel_simulation::{Chunk, ChunkPosition};
+use crate::game::data::pixel_simulation::{Chunk, ChunkPosition, WorldCellPosition, CellType, Cell, ChunkCellPosition, ChunksDimensions};
 use bevy::math::Rect;
 use core::slice;
 use smallvec::{smallvec};
-use std::cell::RefCell;
-use std::rc::Rc;
 use std::sync::{Arc, Mutex};
+use crate::game::constants::CHUNK_SIZE;
 
 pub struct MainCamera;
 
 pub struct PixelSimulation {
     pub chunks: HashMap<ChunkPosition, Arc<Mutex<Chunk>>>,
-    pub chunks_dimensions: Rect<i32>
+    pub chunks_dimensions: ChunksDimensions,
+    pub chunk_changes: ChunkChanges
 }
 
 impl PixelSimulation {
@@ -22,20 +23,22 @@ impl PixelSimulation {
         let bottom = chunks.keys().min_by_key(|position| position.y).unwrap().y;
         let top = chunks.keys().max_by_key(|position| position.y).unwrap().y;
 
-        let chunks_dimensions = Rect {
+        let chunks_dimensions = ChunksDimensions(Rect {
             left,
             right,
             top,
             bottom
-        };
+        });
+        
+        let chunk_changes = ChunkChanges::new();
         
         Self {
             chunks: chunks.iter().map(|(chunk_position, chunk)| (*chunk_position, Arc::new(Mutex::new(chunk.clone())))).collect(),
+            chunk_changes,
             chunks_dimensions
         }
     }
 }
-
 
 #[derive(Clone)]
 pub struct ChunkChanges {

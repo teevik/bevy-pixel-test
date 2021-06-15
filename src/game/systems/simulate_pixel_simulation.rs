@@ -1,12 +1,12 @@
 ﻿use bevy::prelude::*;
 use crate::game::components::{PixelSimulation, ChunkChanges};
 use crate::game::constants::CHUNK_SIZE;
-use crate::game::data::pixel_simulation::{CellContainer, Cell, ChunkPosition, CellPosition, Chunk};
+use crate::game::data::pixel_simulation::{Cell, CellType, ChunkPosition, ChunkCellPosition, Chunk, WorldCellPosition, ChunksDimensions};
 use std::num::Wrapping;
 use crate::game::data::chunk_changes::CellChange;
 
 pub fn simulate_pixel_simulation(
-    mut query: Query<(&PixelSimulation, &mut ChunkChanges)>,
+    mut query: Query<&mut PixelSimulation>,
     mut iteration: Local<Wrapping<u64>>,
     mut textures: ResMut<Assets<Texture>>
 ) {
@@ -15,89 +15,113 @@ pub fn simulate_pixel_simulation(
     
     let is_even_iteration = iteration.0 % 2 == 0;
 
-    for (pixel_simulation, mut chunk_changes) in query.iter_mut() {
+    for mut pixel_simulation in query.iter_mut() {
         // let keys: Vec<ChunkPosition> = pixel_simulation.chunks.keys().map(|chunk_position| *chunk_position).collect();
 
-        let dimensions = pixel_simulation.chunks_dimensions;
+        let chunks_dimensions = pixel_simulation.chunks_dimensions;
         
-        let awd = dimensions.left..=dimensions.right;
+        struct ChunksMut<'a> {
+            chunks_dimensions: ChunksDimensions,
+            chunks: Vec<Option<&'a mut Chunk>>
+        }
+        
+        impl<'a> ChunksMut<'a> {
+            pub fn new(chunks_dimensions: ChunksDimensions) -> Self {
+                let vec_size = (chunks_dimensions.width() * chunks_dimensions.height()) as usize;
+                
+                let mut vec1 = Vec::<Option<&mut Chunk>>::with_capacity(vec_size);
+                vec1.resize_with(vec_size, || None);
+
+                Self {
+                    chunks_dimensions,
+                    chunks: vec1
+                }
+            }
+            
+            pub fn set_chunk(&mut self, chunk_position: ChunkPosition, chunk: &'a mut Chunk) {
+                let x_index = (chunk_position.x - self.chunks_dimensions.left) as usize;
+                let y_index = (chunk_position.y - self.chunks_dimensions.bottom) as usize;
+                let index = x_index + (y_index * CHUNK_SIZE);
+                
+                self.chunks[index] = Some(chunk);
+            }
+
+            pub fn get_chunk_index(&mut self, index: UVec2) -> usize {
+                let index = (index.x as usize) + ((index.y as usize) * CHUNK_SIZE);
+
+                index
+            }
+        }
+
+        let mut chunks_thing = ChunksMut::new(chunks_dimensions);
+        
+        for (chunk_position, chunk) in &pixel_simulation.chunks {
+            let chunk = &mut (*chunk.lock().unwrap());
+            
+            chunks_thing.set_chunk(*chunk_position, chunk);
+        }
+        
+        let horizontal_range_normal = 0..chunks_dimensions.width();
         let horizontal_range = if is_even_iteration {
-            itertools::Either::Left(awd)
+            itertools::Either::Left(horizontal_range_normal)
         } else {
-            itertools::Either::Right(awd.rev())
+            itertools::Either::Right(horizontal_range_normal.rev())
         };
         
-        for chunk_x in horizontal_range {
-            for chunk_y in dimensions.bottom..=dimensions.top {
-                let chunk_position = ChunkPosition(IVec2::new(chunk_x, chunk_y));
-                if !pixel_simulation.chunks.contains_key(&chunk_position) { continue };
+        for x in horizontal_range {
+            for y in 0..chunks_dimensions.height() {
+                let chunk_index = IVec2::new(x, y);
                 
-                let chunk = &mut pixel_simulation.chunks[&chunk_position].lock().unwrap();
-                let chunk_cells = &mut chunk.cells;
+                if let Some(current_chunk) = chunks_thing.get_chunk(chunk_index) {
+                    let horizontal_range = if is_even_iteration {
+                        itertools::Either::Left(0..CHUNK_SIZE)
+                    } else {
+                        itertools::Either::Right((0..CHUNK_SIZE).rev())
+                    };
 
-                let horizontal_range = if is_even_iteration {
-                    itertools::Either::Left(0..CHUNK_SIZE)
-                } else {
-                    itertools::Either::Right((0..CHUNK_SIZE).rev())
-                };
-                
-                let set_cell = || {
-                    
-                };
+                    for x in horizontal_range {
+                        for y in (0..CHUNK_SIZE).rev() {
+                            let chunk_cell_position = ChunkCellPosition(UVec2::new(x as u32, y as u32));
 
-                for x in horizontal_range {
-                    for y in (0..CHUNK_SIZE).rev() {
-                        let cell_position = CellPosition(UVec2::new(x as u32, y as u32));
-                        
-                        if let Some(cell_container) = chunk_cells.get_cell(cell_position) {
-                            if cell_container.last_iteration_updated != iteration.0 {
-                                let mut cell_container = cell_container;
-                                cell_container.last_iteration_updated = iteration.0;
-                                
-                                let mut try_move_offset = |cell_offset: IVec2| -> bool {
-                                    let offseted_cell_position = cell_position.as_i32() + cell_offset;
+                            if let Some(cell_container) = current_chunk.get_cell(chunk_cell_position) {
+                                if cell_container.last_iteration_updated != iteration.0 {
+                                    let mut cell_container = cell_container;
+                                    cell_container.last_iteration_updated = iteration.0;
 
-                                    let chunk_offset = (offseted_cell_position.as_f32() / (CHUNK_SIZE as f32)).floor().as_i32();
-                                    let target_chunk_position = ChunkPosition(*chunk_position + IVec2::new(chunk_offset.x, -chunk_offset.y));
-                                    let target_cell_position = CellPosition((offseted_cell_position - (chunk_offset * CHUNK_SIZE as i32)).as_u32());
-
-                                    if pixel_simulation.chunks.contains_key(&target_chunk_position) {
-                                        let target_chunk = &mut pixel_simulation.chunks[&target_chunk_position].lock().unwrap();
-                                        let target_chunk_cells = &mut target_chunk.cells;
-
-                                        if target_chunk_cells.get_cell(target_cell_position).is_none() {
-                                            chunk_cells.set_cell(cell_position, None);
-                                            target_chunk_cells.set_cell(target_cell_position, Some(cell_container));
-
-                                            chunk_changes.add_cell_change(chunk_position, CellChange {
-                                                cell_position: CellPosition(UVec2::new(x as u32, y as u32)),
-                                                new_color: [0, 0, 0, 0]
-                                            });
-
-                                            chunk_changes.add_cell_change(target_chunk_position, CellChange {
-                                                cell_position: target_cell_position,
-                                                new_color: cell_container.color
-                                            });
-                                            true
-                                        } else {
-                                            false
+                                    let mut try_move_offset = |cell_offset: IVec2| -> bool {
+                                        let offseted_cell_position = chunk_cell_position.as_i32() + cell_offset;
+                                        let chunk_index_offset = offseted_cell_position / CHUNK_SIZE as i32;
+                                        
+                                        let target_chunk_position = chunk_index + chunk_index_offset;
+                                        
+                                        if target_chunk_position.x >= 0 && target_chunk_position.x < chunks_dimensions.width() && target_chunk_position.y >= 0 && target_chunk_position.y < chunks_dimensions.height() {
+                                            if let Some(target_chunk) = chunks_thing.get_chunk(target_chunk_position) {
+                                                let target_chunk_cell_position = ChunkCellPosition((offseted_cell_position - (chunk_index_offset * (CHUNK_SIZE as i32))).as_u32());
+                                                
+                                                if target_chunk.get_cell(target_chunk_cell_position).is_none() {
+                                                    (current_chunk).set_cell(chunk_cell_position, None, &mut textures);
+                                                    (target_chunk).set_cell(target_chunk_cell_position, Some(cell_container), &mut textures);
+                                                    
+                                                    return true;
+                                                }
+                                            }
                                         }
-                                    } else {
+                                        
                                         false
-                                    }
-                                };
-                                
-                                let slide_direction = if is_even_iteration { -1 } else { 1 };
-                                
-                                if try_move_offset(IVec2::new(0, 1)) {}
-                                else if try_move_offset(IVec2::new(slide_direction, 1)) {}
-                                else if try_move_offset(IVec2::new(-slide_direction, 1)) {}
-                                else { chunk_cells.set_cell(cell_position, Some(cell_container)); }
+                                    };
+
+                                    let slide_direction = if is_even_iteration { -1 } else { 1 };
+
+                                    if try_move_offset(IVec2::new(0, 1)) {}
+                                    else if try_move_offset(IVec2::new(slide_direction, 1)) {}
+                                    else if try_move_offset(IVec2::new(-slide_direction, 1)) {}
+                                    else { (*current_chunk).set_cell(chunk_cell_position, Some(cell_container), &mut textures); }
+                                }
                             }
                         }
                     }
                 }
             }
-        }
+        }        
     }
 }

@@ -49,7 +49,6 @@ pub fn setup(
     commands.spawn()
         .insert(Name::new("Pixel Simulation"))
         .insert(PixelSimulation::new(chunks.clone()))
-        .insert(ChunkChanges::new())
         .insert(Transform::default())
         .insert(GlobalTransform::default())
         .with_children(|child_builder| {
@@ -57,9 +56,9 @@ pub fn setup(
                 child_builder.spawn()
                     .insert(Name::new(format!("Chunk {} {}", position.x, position.y)))
                     .insert_bundle(SpriteBundle {
-                        material: chunk.material_handle.clone(),
+                        material: (*chunk.get_material_handle()).clone(),
                         sprite: Sprite::new(Vec2::ONE * WORLD_CHUNK_SIZE),
-                        transform: Transform::from_translation(Vec3::new(position.x as f32 * WORLD_CHUNK_SIZE, position.y as f32 * WORLD_CHUNK_SIZE, 0.)),
+                        transform: Transform::from_translation(Vec3::new(position.x as f32 * WORLD_CHUNK_SIZE, -position.y as f32 * WORLD_CHUNK_SIZE, 0.)),
                         ..Default::default()
                     });
             }

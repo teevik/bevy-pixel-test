@@ -2,7 +2,6 @@
 use crate::game::systems::setup::setup;
 use crate::game::systems::simulate_pixel_simulation::simulate_pixel_simulation;
 use crate::game::systems::update_pixel_simulation::update_pixel_simulation;
-use crate::game::systems::render_pixel_simulation::render_pixel_simulation;
 use crate::game::data::system_labels::SystemLabels;
 use crate::game::constants::PIXEL_SIMULATION_TIMESTEP;
 use bevy::core::FixedTimestep;
@@ -16,7 +15,6 @@ impl Plugin for GamePlugin {
         app.add_system(
             simulate_pixel_simulation.system()
                 .label(SystemLabels::SimulatePixelSimulation)
-                .before(SystemLabels::RenderPixelSimulation)
                 .with_run_criteria(FixedTimestep::step(PIXEL_SIMULATION_TIMESTEP))
         );
             
@@ -24,11 +22,6 @@ impl Plugin for GamePlugin {
             update_pixel_simulation.system()
                 .label(SystemLabels::UpdatePixelSimulation)
                 .before(SystemLabels::SimulatePixelSimulation)
-        );
-        
-        app.add_system(
-            render_pixel_simulation.system()
-                .label(SystemLabels::RenderPixelSimulation)
         );
     }
 }
