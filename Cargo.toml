@@ -5,7 +5,7 @@ authors = ["teevik <teemu.vikoren@gmail.com>"]
 edition = "2018"
 
 [dependencies]
-bevy = "0.5"
+bevy = { version = "0.5", features = ["dynamic"] }
 bevy-inspector-egui = "0.5"
 rand = "0.8"
 smallvec = "1.6"

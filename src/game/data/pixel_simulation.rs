@@ -21,12 +21,12 @@ pub struct ChunkPosition(pub IVec2);
 pub struct ChunksDimensions(pub Rect<i32>);
 
 impl ChunksDimensions {
-    pub fn width(&self) -> i32 {
-        self.right - self.left
+    pub fn width(&self) -> u32 {
+        (self.right - self.left) as u32
     }
 
-    pub fn height(&self) -> i32 {
-        self.top - self.bottom
+    pub fn height(&self) -> u32 {
+        (self.top - self.bottom) as u32
     }
 }
 

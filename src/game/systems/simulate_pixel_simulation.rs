@@ -46,6 +46,20 @@ pub fn simulate_pixel_simulation(
                 self.chunks[index] = Some(chunk);
             }
 
+            pub fn get_chunk(&mut self, chunk_position: ChunkPosition) -> &mut Option<&'a mut Chunk> {
+                let x_index = (chunk_position.x - self.chunks_dimensions.left) as usize;
+                let y_index = (chunk_position.y - self.chunks_dimensions.bottom) as usize;
+                let index = x_index + (y_index * CHUNK_SIZE);
+
+                &mut self.chunks[index]
+            }
+
+            pub fn get_chunk_by_index(&mut self, chunk_index: UVec2) -> &mut Option<&'a mut Chunk> {
+                let index = self.get_chunk_index(chunk_index);
+
+                &mut self.chunks[index]
+            }
+
             pub fn get_chunk_index(&mut self, index: UVec2) -> usize {
                 let index = (index.x as usize) + ((index.y as usize) * CHUNK_SIZE);
 
@@ -70,9 +84,9 @@ pub fn simulate_pixel_simulation(
         
         for x in horizontal_range {
             for y in 0..chunks_dimensions.height() {
-                let chunk_index = IVec2::new(x, y);
+                let chunk_index = UVec2::new(x, y);
                 
-                if let Some(current_chunk) = chunks_thing.get_chunk(chunk_index) {
+                if let Some(current_chunk) = chunks_thing.get_chunk_by_index(chunk_index) {
                     let horizontal_range = if is_even_iteration {
                         itertools::Either::Left(0..CHUNK_SIZE)
                     } else {
@@ -92,15 +106,17 @@ pub fn simulate_pixel_simulation(
                                         let offseted_cell_position = chunk_cell_position.as_i32() + cell_offset;
                                         let chunk_index_offset = offseted_cell_position / CHUNK_SIZE as i32;
                                         
-                                        let target_chunk_position = chunk_index + chunk_index_offset;
+                                        let target_chunk_position = chunk_index.as_i32() + chunk_index_offset;
                                         
-                                        if target_chunk_position.x >= 0 && target_chunk_position.x < chunks_dimensions.width() && target_chunk_position.y >= 0 && target_chunk_position.y < chunks_dimensions.height() {
-                                            if let Some(target_chunk) = chunks_thing.get_chunk(target_chunk_position) {
+                                        if target_chunk_position.x >= 0 && target_chunk_position.x < chunks_dimensions.width() as i32 && target_chunk_position.y >= 0 && target_chunk_position.y < chunks_dimensions.height() as i32 {
+                                            let target_chunk_position = target_chunk_position.as_u32();
+                                            
+                                            if let Some(target_chunk) = chunks_thing.get_chunk_by_index(target_chunk_position) {
                                                 let target_chunk_cell_position = ChunkCellPosition((offseted_cell_position - (chunk_index_offset * (CHUNK_SIZE as i32))).as_u32());
                                                 
                                                 if target_chunk.get_cell(target_chunk_cell_position).is_none() {
-                                                    (current_chunk).set_cell(chunk_cell_position, None, &mut textures);
-                                                    (target_chunk).set_cell(target_chunk_cell_position, Some(cell_container), &mut textures);
+                                                    (*current_chunk).set_cell(chunk_cell_position, None, &mut textures);
+                                                    (*target_chunk).set_cell(target_chunk_cell_position, Some(cell_container), &mut textures);
                                                     
                                                     return true;
                                                 }
