@@ -1,12 +1,30 @@
 ﻿use bevy::prelude::*;
 use crate::game::constants::CHUNK_SIZE;
 use shrinkwraprs::Shrinkwrap;
+use std::iter::Enumerate;
+use arr_macro::arr;
 
 #[derive(Shrinkwrap, Clone, Copy)]
 pub struct WorldCellPosition(pub IVec2);
 
 #[derive(Shrinkwrap, Clone, Copy)]
 pub struct ChunkCellPosition(pub UVec2);
+
+#[derive(Shrinkwrap, Clone, Copy)]
+pub struct ChunkIndex(pub usize);
+
+impl ChunkIndex {
+    pub fn from_chunk_position(chunk_position: ChunkPosition) -> Self {
+        Self((chunk_position.0.x * chunk_position.0.y) as usize)
+    }
+    
+    pub fn to_chunk_position(self) -> ChunkPosition {
+        let y = (*self) / 3;
+        let x = (*self) - (y * 3);
+        
+        ChunkPosition(UVec2::new(x as u32, y as u32))
+    }
+}
 
 impl ChunkCellPosition {
     pub fn to_cell_index(&self) -> usize {
@@ -15,7 +33,7 @@ impl ChunkCellPosition {
 }
 
 #[derive(Shrinkwrap, Clone, Copy, PartialEq, Eq, Hash)]
-pub struct ChunkPosition(pub IVec2);
+pub struct ChunkPosition(pub UVec2);
 
 #[derive(Shrinkwrap, Clone, Copy)]
 pub struct ChunksDimensions(pub Rect<i32>);
@@ -27,6 +45,35 @@ impl ChunksDimensions {
 
     pub fn height(&self) -> u32 {
         (self.top - self.bottom) as u32
+    }
+}
+
+
+#[derive(Clone)]
+pub struct Chunks {
+    chunks: Vec<Chunk>,
+}
+
+impl Chunks {
+    pub fn new<ChunkFactory: FnMut() -> Chunk>(mut chunk_factory: ChunkFactory) -> Self {
+        let chunks = (0..9).map(|_| chunk_factory()).collect();
+        
+        Self {
+            chunks
+        }
+    }
+    
+    pub fn get_chunk(&mut self, chunk_index: ChunkIndex) -> &mut Chunk {
+        &mut self.chunks[*chunk_index]
+    }
+}
+
+impl IntoIterator for Chunks {
+    type Item = (ChunkIndex, Chunk);
+    type IntoIter = std::iter::Map<Enumerate<std::vec::IntoIter<Chunk>>, fn((usize, Chunk)) -> (ChunkIndex, Chunk)>;
+
+    fn into_iter(self) -> Self::IntoIter {
+        self.chunks.into_iter().enumerate().map(|(chunk_index, chunk)| (ChunkIndex(chunk_index), chunk))
     }
 }
 
