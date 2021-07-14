@@ -15,7 +15,7 @@ impl Plugin for GamePlugin {
         app.add_system(
             simulate_pixel_simulation.system()
                 .label(SystemLabels::SimulatePixelSimulation)
-                .with_run_criteria(FixedTimestep::step(PIXEL_SIMULATION_TIMESTEP))
+                .with_run_criteria(FixedTimestep::step(PIXEL_SIMULATION_TIMESTEP as f64))
         );
             
         app.add_system(

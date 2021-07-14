@@ -22,7 +22,7 @@ pub fn setup(
                         style: TextStyle {
                             font: font.clone(),
                             font_size: 30.,
-                            color: Color::hex("181818").unwrap(),
+                            color: Color::rgba(0., 0., 0., 0.9),
                         },
                     },
                     TextSection {
@@ -30,7 +30,7 @@ pub fn setup(
                         style: TextStyle {
                             font: font.clone(),
                             font_size: 30.,
-                            color: Color::hex("181818").unwrap(),
+                            color: Color::rgba(0., 0., 0., 0.9),
                         },
                     },
                 ],
