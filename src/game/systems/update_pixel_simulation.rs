@@ -1,12 +1,11 @@
 ﻿use bevy::prelude::*;
 use crate::game::components::{MainCamera, PixelSimulation};
 use crate::game::constants::CHUNK_SIZE;
-use crate::game::data::pixel_simulation::{ChunkPosition, ChunkCellPosition, Cell, CellType, WorldCellPosition, ChunkIndex, Particle};
+use crate::game::data::pixel_simulation::{CellType, Particle};
 use rand::Rng;
 use std::ops::Range;
 use lazy_static::lazy_static;
-use palette::{Lch, Gradient, Srgb, FromColor, Srgba};
-use palette::rgb::Rgba;
+use palette::{Lch, Gradient, FromColor, Srgba};
 
 lazy_static! {
     static ref SAND_GRADIENT: Gradient<Lch> = Gradient::new(vec![
@@ -24,8 +23,7 @@ pub fn update_pixel_simulation(
     mut query: Query<&mut PixelSimulation>,
     main_camera_query: Query<&Transform, With<MainCamera>>,
     windows: Res<Windows>,
-    mouse_button_inputs: Res<Input<MouseButton>>,
-    mut textures: ResMut<Assets<Texture>>
+    mouse_button_inputs: Res<Input<MouseButton>>
 ) {
     let window = windows.get_primary().unwrap();
     let camera_transform = main_camera_query.single().unwrap();
@@ -42,15 +40,10 @@ pub fn update_pixel_simulation(
         
                 let world_cell_position = (cursor_position_world / 300. * CHUNK_SIZE as f32).round() + (Vec2::ONE * (CHUNK_SIZE as f32 * 1.5));
                 let world_cell_position = Vec2::new(world_cell_position.x, 64. - world_cell_position.y);
-                let chunk_position = (world_cell_position / CHUNK_SIZE as f32).floor().as_i32();
-                // let world_cell_position = world_cell_position.as_i32();
-                // let cell_position = (world_cell_position - chunk_position * CHUNK_SIZE as i32).as_u32();
-                // let chunk_position = IVec2::new(chunk_position.x, chunk_position.y + 2);
                 let world_cell_position = Vec2::new(world_cell_position.x, world_cell_position.y + 2. * CHUNK_SIZE as f32);
 
                 const spread: Range<f32> = -10. .. 10.;
                 let mut rng = rand::thread_rng();
-
 
                 if should_spawn_sand {
                     for _ in 0..5 {
@@ -79,14 +72,6 @@ pub fn update_pixel_simulation(
                         });
                     }
                 }
-
-                // if chunk_position.x >= 0 && chunk_position.x < 3 && chunk_position.y >= 0 && chunk_position.y < 3 {
-                //     let chunk_position = ChunkPosition(chunk_position.as_u32());
-                //     let chunk_index = ChunkIndex::from_chunk_position(chunk_position);
-                //     let cell_position = ChunkCellPosition(cell_position);
-                //
-                //     pixel_simulation.chunks.get_chunk(chunk_index).set_cell(cell_position, Some(Cell { cell_type: CellType::Sand, color: [255, 255, 0, 255], last_iteration_updated: 0 }), &mut textures);
-                // }
             }
         }
     }

@@ -1,10 +1,8 @@
 ﻿use bevy::prelude::*;
 use crate::game::components::{PixelSimulation};
 use crate::game::constants::{CHUNK_SIZE, PIXEL_SIMULATION_TIMESTEP};
-use crate::game::data::pixel_simulation::{Cell, CellType, ChunkPosition, ChunkCellPosition, Chunk, WorldCellPosition, ChunksDimensions, ChunkIndex};
+use crate::game::data::pixel_simulation::{Cell, CellType, ChunkPosition, ChunkCellPosition, ChunkIndex};
 use std::num::Wrapping;
-use crate::game::data::chunk_changes::CellChange;
-use rand::{thread_rng, Rng};
 
 pub fn simulate_pixel_simulation(
     mut query: Query<&mut PixelSimulation>,
@@ -44,7 +42,7 @@ pub fn simulate_pixel_simulation(
                                 let mut cell_container = cell_container;
                                 cell_container.last_iteration_updated = iteration.0;
 
-                                let mut try_move_offset = |cell_offset: IVec2, pixel_simulation: &mut PixelSimulation, textures: &mut Assets<Texture>| -> bool {
+                                let try_move_offset = |cell_offset: IVec2, pixel_simulation: &mut PixelSimulation, textures: &mut Assets<Texture>| -> bool {
                                     let offseted_cell_position = chunk_cell_position.as_i32() + cell_offset;
                                     let chunk_index_offset = ((offseted_cell_position.as_f32()) / (CHUNK_SIZE as f32)).floor().as_i32();
                                     
@@ -67,7 +65,7 @@ pub fn simulate_pixel_simulation(
                                     false
                                 };
 
-                                let mut try_switch_if = |cell_offset: IVec2, target_cell_types: &[CellType], pixel_simulation: &mut PixelSimulation, textures: &mut Assets<Texture>| -> bool {
+                                let try_switch_if = |cell_offset: IVec2, target_cell_types: &[CellType], pixel_simulation: &mut PixelSimulation, textures: &mut Assets<Texture>| -> bool {
                                     let offseted_cell_position = chunk_cell_position.as_i32() + cell_offset;
                                     let chunk_index_offset = ((offseted_cell_position.as_f32()) / (CHUNK_SIZE as f32)).floor().as_i32();
 

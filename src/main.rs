@@ -4,7 +4,7 @@ mod show_fps;
 use bevy::prelude::*;
 use bevy_inspector_egui::{Inspectable, WorldInspectorPlugin, InspectorPlugin, WorldInspectorParams, InspectableRegistry};
 use bevy_inspector_egui::widgets::{ResourceInspector};
-use bevy::diagnostic::{FrameTimeDiagnosticsPlugin, Diagnostics};
+use bevy::diagnostic::{FrameTimeDiagnosticsPlugin};
 use crate::show_fps::plugin::ShowFpsPlugin;
 use crate::game::plugin::GamePlugin;
 
@@ -32,7 +32,7 @@ fn main() {
         ..Default::default()
     });
 
-    let mut registry: Mut<InspectableRegistry> = app
+    let _registry: Mut<InspectableRegistry> = app
         .world_mut()
         .get_resource_or_insert_with(InspectableRegistry::default);
 

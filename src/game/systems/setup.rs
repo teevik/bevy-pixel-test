@@ -1,8 +1,5 @@
 ﻿use bevy::{
     prelude::*,
-    render::{
-        texture::{ TextureDimension, TextureFormat, Extent3d },
-    },
 };
 use crate::game::components::{MainCamera, PixelSimulation};
 use crate::game::data::pixel_simulation::{Chunk, Chunks, ChunkTexture, ChunkPosition, ChunkIndex};
